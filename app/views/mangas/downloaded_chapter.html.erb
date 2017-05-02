@@ -1,0 +1,2 @@
+<h3><%= @directory %></h3>
+<%= link_to @directory.split('/').last + ".cbr", zip_mangas_path(:zip_path => @zipfile_name) %>

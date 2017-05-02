@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="col-lg-12">
+      <%= form_tag(mangas_path, class: 'input-group', :method => "get", id: "search-form") do %>
+      <%= text_field_tag :search, params[:search], placeholder: "Search Posts", class: 'form-control' %>
+      <span class="input-group-btn">
+        <%= submit_tag "Search", class: 'btn btn-default' %>
+      </span>
+      <% end %>
+  </div>
+</div>
+
+<% if @paginated_volumes.size > 0 %>
+<h2><%= @manga[:title] %></h2>
+
+<%= paginate @paginated_volumes %>
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @paginated_volumes.each_with_index do |f,index| %>
+    <tr>
+      <th><%= link_to f[:volume],chapters_mangas_path(:volume => index) %></th>
+    </tr>
+    <% end %>
+  </tbody>
+
+</table>
+<% end %>

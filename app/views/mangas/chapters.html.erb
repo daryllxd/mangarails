@@ -1,0 +1,16 @@
+<h2><%=  @volume %></h2>
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @chapters.each do |f| %>
+      <tr>
+        <th><%= link_to f[:text],downloaded_chapter_mangas_path(:url => f[:href]) %></th>
+      </tr>
+    <% end %>
+  </tbody>
+
+</table>
